@@ -1,0 +1,6 @@
+{% extends 'base.html' %} {% block content %}
+<div class="text-bg-primary p-3 ">
+    <h1 class=" ">Task {{task.pk}} : {{task}} </h1>
+    <p>{{task.description}}</p>
+</div>
+{% endblock %}

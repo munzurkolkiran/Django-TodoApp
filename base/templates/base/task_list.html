@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<h2 class="bg-primary p-3" ">My To Do List</h2>
+
+<a href="{% url 'task-create' %} ">Add Task</a>
+    <table class="table ">
+    <tr>
+        <th class="col ">Tasks</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td>{{task.title}}</td>
+        <td class="col ">
+            <a href="{% url 'task-detail' task.id %} ">View</a>
+            <a href="{% url 'task-update' task.id %} ">Edit</a>
+            <a href="{% url 'task-delete' task.id %} ">Delete</a>
+        </td>
+    </tr>
+    {% empty %}
+    <h3>No items in list</h3>
+    {% endfor %}
+</table>
+
+{% endblock content %}
